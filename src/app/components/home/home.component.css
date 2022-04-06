@@ -1,0 +1,11 @@
+#buttonBox {
+  width: 40%;
+}
+
+#imageBox {
+  width: 55%;
+}
+
+#container {
+  display: flex;
+}
