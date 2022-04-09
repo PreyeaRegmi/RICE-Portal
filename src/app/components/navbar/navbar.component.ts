@@ -110,13 +110,17 @@ export class NavbarComponent implements OnInit {
     };
 
     getTitle(){
-      var titlee = this.location.prepareExternalUrl(this.location.path());
-      if(titlee.charAt(0) === '#'){
-          titlee = titlee.slice( 1 );
-      }
+      var titleeInUrl = this.location.prepareExternalUrl(this.location.path());
+        var titleExploded=titleeInUrl.split("/");
+        var explicitTitle=titleExploded[titleExploded.length-1];
+        console.log("title : "+explicitTitle);
+      
+    //   if(titlee.charAt(0) === 'home'){
+    //       titlee = titlee.slice( 1 );
+    //   }
 
       for(var item = 0; item < this.listTitles.length; item++){
-          if(this.listTitles[item].path === titlee){
+          if(this.listTitles[item].path === explicitTitle){
               return this.listTitles[item].title;
           }
       }

@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { InvalidrouteComponent } from '../invalidroute/invalidroute.component';
 import { RegisterComponent } from '../register/register.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 // import { DashboardComponent } from '../../dashboard/dashboard.component';
 // import { UserProfileComponent } from '../../user-profile/user-profile.component';
@@ -54,8 +56,8 @@ export const HomeLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
-    { path: 'register',      component: RegisterComponent },
-    { path: 'user-profile',      component: RegisterComponent },
+    { path: 'dashboard',      component: DashboardComponent },
+    { path: 'user-profile',      component: UserprofileComponent },
     // { path: 'user-profile',   component: UserProfileComponent },
     // { path: 'table-list',     component: TableListComponent },
     // { path: 'typography',     component: TypographyComponent },

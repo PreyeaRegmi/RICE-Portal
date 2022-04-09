@@ -9,6 +9,8 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 @NgModule({
   imports: [
@@ -32,6 +34,9 @@ import {MatSelectModule} from '@angular/material/select';
     // MapsComponent,
     // NotificationsComponent,
     // UpgradeComponent,
+  
+    DashboardComponent,
+    UserprofileComponent
   ]
 })
 
