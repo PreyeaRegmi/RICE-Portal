@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { InvalidrouteComponent } from '../invalidroute/invalidroute.component';
 import { RegisterComponent } from '../register/register.component';
 
 // import { DashboardComponent } from '../../dashboard/dashboard.component';

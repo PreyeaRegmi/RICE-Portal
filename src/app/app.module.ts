@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { HomeLayoutComponent } from './home/home-layout.component';
 import { ComponentsModule } from './components/components.module';
+import { InvalidrouteComponent } from './invalidroute/invalidroute.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ComponentsModule } from './components/components.module';
     LoginComponent,
     RegisterComponent,
     HomeLayoutComponent,
+    InvalidrouteComponent,
   ],
   imports: [
     BrowserModule,
