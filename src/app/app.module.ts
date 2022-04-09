@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './register/register.component';
-import { HomeLayoutComponent } from './abc/home-layout.component';
+import { HomeLayoutComponent } from './home/home-layout.component';
 import { ComponentsModule } from './components/components.module';
 
 @NgModule({
