@@ -11,6 +11,12 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { HttpClientModule} from '@angular/common/http';
+import { ExpimagelistingComponent } from './expimagelisting/expimagelisting.component';
+
+
+
 
 @NgModule({
   imports: [
@@ -24,6 +30,8 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    NgxGalleryModule,
+    HttpClientModule,
   ],
   declarations: [
     // DashboardComponent,
@@ -36,7 +44,8 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     // UpgradeComponent,
   
     DashboardComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    ExpimagelistingComponent
   ]
 })
 

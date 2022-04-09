@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { InvalidrouteComponent } from '../invalidroute/invalidroute.component';
 import { RegisterComponent } from '../register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ExpimagelistingComponent } from './expimagelisting/expimagelisting.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 
 // import { DashboardComponent } from '../../dashboard/dashboard.component';
@@ -18,5 +19,6 @@ export const HomeLayoutRoutes: Routes = [
     { path: '',      redirectTo:'dashboard' },
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',      component: UserprofileComponent },
+    { path: 'images',      component: ExpimagelistingComponent },
 
 ];
