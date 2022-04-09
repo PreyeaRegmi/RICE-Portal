@@ -9,6 +9,8 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
@@ -32,6 +34,7 @@ import { ExpimagelistingComponent } from './expimagelisting/expimagelisting.comp
     MatTooltipModule,
     NgxGalleryModule,
     HttpClientModule,
+    MatGridListModule
   ],
   declarations: [
     // DashboardComponent,
