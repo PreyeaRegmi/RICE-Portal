@@ -109,6 +109,14 @@ export class NavbarComponent implements OnInit {
         }
     };
 
+
+  onLogoutBtnPressed():void{
+    localStorage.setItem("auth","");
+    this.router.navigate(['login']);
+
+    
+  }
+
     getTitle(){
       var titleeInUrl = this.location.prepareExternalUrl(this.location.path());
         var titleExploded=titleeInUrl.split("/");

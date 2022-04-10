@@ -9,27 +9,28 @@ import { Component, OnInit } from '@angular/core';
 export class ExpimagelistingComponent implements OnInit {
   public list = [];
 
+  imageURL = '';
+
+  viewerOpen = false;
 
   constructor() { }
 
   ngOnInit(): void {
     this.list = [
-      {data: 1 },
-      {  data: 2 },
-      {  data: 3 },
-      {  data: 4 },
 
-      { data: 5 },
-      { data: 6 },
-      { data: 7 },
-      { data: 8 },
-      { data: 9 },
-
-      {  data: 10 },
-      {  data: 11 },
-      {  data: 12 },
-      {  data: 13 },
-      {  data: 14 },
+      {imageUrl: "https://picsum.photos/200/301" },
+      {imageUrl: "https://picsum.photos/200/302" },
+      {imageUrl: "https://picsum.photos/200/303" },
+      {imageUrl: "https://picsum.photos/200/304" },
+      {imageUrl: "https://picsum.photos/200/305" },
+      {imageUrl: "https://picsum.photos/200/306" },
+      {imageUrl: "https://picsum.photos/200/307" },
+      {imageUrl: "https://picsum.photos/200/308" },
+      {imageUrl: "https://picsum.photos/200/309" },
+      {imageUrl: "https://picsum.photos/200/310" },
+      {imageUrl: "https://picsum.photos/200/311" },
+      {imageUrl: "https://picsum.photos/200/312" },
+      
       
     ];
   
@@ -37,7 +38,9 @@ export class ExpimagelistingComponent implements OnInit {
 
   onImageClicked(item):void
   {
-    console.log(item.data);
+    this.imageURL=item.imageUrl;
+    this.viewerOpen=true;
   }
+
 
 }

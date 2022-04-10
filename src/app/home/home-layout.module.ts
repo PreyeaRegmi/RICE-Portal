@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { HttpClientModule} from '@angular/common/http';
 import { ExpimagelistingComponent } from './expimagelisting/expimagelisting.component';
+import { ImageviewerComponent } from '../imageviewer/imageviewer.component';
 
 
 
@@ -46,7 +47,8 @@ import { ExpimagelistingComponent } from './expimagelisting/expimagelisting.comp
   
     DashboardComponent,
     UserprofileComponent,
-    ExpimagelistingComponent
+    ExpimagelistingComponent,
+    ImageviewerComponent
   ]
 })
 
