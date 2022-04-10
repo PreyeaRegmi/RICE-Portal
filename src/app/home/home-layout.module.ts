@@ -13,7 +13,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
-import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { HttpClientModule} from '@angular/common/http';
 import { ExpimagelistingComponent } from './expimagelisting/expimagelisting.component';
 
@@ -32,7 +31,6 @@ import { ExpimagelistingComponent } from './expimagelisting/expimagelisting.comp
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    NgxGalleryModule,
     HttpClientModule,
     MatGridListModule
   ],
