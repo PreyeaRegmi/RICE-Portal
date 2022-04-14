@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ImageService } from 'src/app/services/image.service';
 
 
 @Component({
@@ -7,39 +8,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./expimagelisting.component.css']
 })
 export class ExpimagelistingComponent implements OnInit {
-  public list = [];
+  public imageList: string[];
 
   imageURL = '';
 
   viewerOpen = false;
 
-  constructor() { }
+  imageService: ImageService;
 
-  ngOnInit(): void {
-    this.list = [
-
-      {imageUrl: "https://picsum.photos/200/301" },
-      {imageUrl: "https://picsum.photos/200/302" },
-      {imageUrl: "https://picsum.photos/200/303" },
-      {imageUrl: "https://picsum.photos/200/304" },
-      {imageUrl: "https://picsum.photos/200/305" },
-      {imageUrl: "https://picsum.photos/200/306" },
-      {imageUrl: "https://picsum.photos/200/307" },
-      {imageUrl: "https://picsum.photos/200/308" },
-      {imageUrl: "https://picsum.photos/200/309" },
-      {imageUrl: "https://picsum.photos/200/310" },
-      {imageUrl: "https://picsum.photos/200/311" },
-      {imageUrl: "https://picsum.photos/200/312" },
-      
-      
-    ];
-  
+  constructor(imageService: ImageService) {
+    this.imageService = imageService;
   }
 
-  onImageClicked(item):void
-  {
-    this.imageURL=item.imageUrl;
-    this.viewerOpen=true;
+  ngOnInit(): void {
+
+    this.imageService.getImages().subscribe(imgList => {
+      this.imageList = imgList;
+    },
+      error => {
+        this.imageList = [
+          "https://picsum.photos/200/301",
+          "https://picsum.photos/200/302",
+          "https://picsum.photos/200/303",
+          "https://picsum.photos/200/304",
+          "https://picsum.photos/200/305",
+          "https://picsum.photos/200/306",
+          "https://picsum.photos/200/307",
+          "https://picsum.photos/200/308",
+          "https://picsum.photos/200/309",
+          "https://picsum.photos/200/310",
+          "https://picsum.photos/200/311",
+        ];
+      },
+    );
+  }
+
+  onImageClicked(item): void {
+    this.imageURL = item;
+    this.viewerOpen = true;
   }
 
 

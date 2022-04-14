@@ -1,8 +1,11 @@
 import { Routes } from '@angular/router';
 import { InvalidrouteComponent } from '../invalidroute/invalidroute.component';
 import { RegisterComponent } from '../register/register.component';
+import { RestrictedrouteComponent } from '../restrictedroute/restrictedroute.component';
+import { AdminService } from '../services/admin.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ExpimagelistingComponent } from './expimagelisting/expimagelisting.component';
+import { UsermanagementComponent } from './usermanagement/usermanagement.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 
 // import { DashboardComponent } from '../../dashboard/dashboard.component';
@@ -16,9 +19,13 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 
 export const HomeLayoutRoutes: Routes = [
 
-    { path: '',      redirectTo:'dashboard' },
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',      component: UserprofileComponent },
-    { path: 'images',      component: ExpimagelistingComponent },
+    { path: '', redirectTo: 'dashboard' },
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'user-profile', component: UserprofileComponent },
+    { path: 'images', component: ExpimagelistingComponent },
+    {
+        path: 'user-management', component: UsermanagementComponent,
+        canActivate: [AdminService],
+    },
 
 ];

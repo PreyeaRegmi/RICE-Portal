@@ -14,6 +14,8 @@ import { RegisterComponent } from './register/register.component';
 import { HomeLayoutComponent } from './home/home-layout.component';
 import { ComponentsModule } from './components/components.module';
 import { InvalidrouteComponent } from './invalidroute/invalidroute.component';
+import { RestrictedrouteComponent } from './restrictedroute/restrictedroute.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { InvalidrouteComponent } from './invalidroute/invalidroute.component';
     RegisterComponent,
     HomeLayoutComponent,
     InvalidrouteComponent,
+    RestrictedrouteComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,8 @@ import { InvalidrouteComponent } from './invalidroute/invalidroute.component';
     AppRoutingModule,
     MatInputModule ,
     ComponentsModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

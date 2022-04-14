@@ -7,13 +7,23 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  userName = '';
+  userPassword = '';
   constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onLoginBtnPressed():void{
-    localStorage.setItem("auth","logged");
+  onLoginBtnPressed(): void {
+    console.log(this.userName + this.userPassword);
+    localStorage.setItem("auth", "logged");
+    if (this.userName == 'admin')
+      localStorage.setItem("userType", "admin");
+    else
+      localStorage.setItem("userType", "user");
+
+      localStorage.setItem("userType", "admin");
+
     this.router.navigate(['home']);
   }
 

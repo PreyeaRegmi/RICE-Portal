@@ -112,6 +112,7 @@ export class NavbarComponent implements OnInit {
 
   onLogoutBtnPressed():void{
     localStorage.setItem("auth","");
+    localStorage.setItem("userType","");
     this.router.navigate(['login']);
 
     
