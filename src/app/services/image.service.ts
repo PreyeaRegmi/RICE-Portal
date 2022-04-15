@@ -7,7 +7,7 @@ import { catchError, map, Observable, tap } from 'rxjs';
 })
 export class ImageService {
 
-  hostName = window.location.hostname;
+  hostName = "www.google.com";
   port = 3000;
 
   host = this.hostName + ':' + this.port;
@@ -15,7 +15,6 @@ export class ImageService {
   constructor(private http: HttpClient) { }
 
   getImages(): Observable<string[]> {
-
 
     return this.http.get<string[]>('http://' + this.host + "/retrieve_images").pipe(
       tap(data => console.log(data)),
