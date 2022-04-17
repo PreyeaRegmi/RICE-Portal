@@ -9,7 +9,10 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
@@ -17,6 +20,11 @@ import { HttpClientModule} from '@angular/common/http';
 import { ExpimagelistingComponent } from './expimagelisting/expimagelisting.component';
 import { ImageviewerComponent } from '../imageviewer/imageviewer.component';
 import { UsermanagementComponent } from './usermanagement/usermanagement.component';
+import { ChatComponent } from './chat/chat.component';
+import { ChatControlsComponent } from './chat/chat-controls/chat-controls.component';
+import { ChatHeaderComponent } from './chat/chat-header/chat-header.component';
+import { ChatMessageComponent } from './chat/chat-message/chat-message.component';
+import { TypingIndicatorComponent } from './chat/typing-indicator/typing-indicator.component';
 
 
 
@@ -34,7 +42,11 @@ import { UsermanagementComponent } from './usermanagement/usermanagement.compone
     MatSelectModule,
     MatTooltipModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTooltipModule,
+    MatCardModule,
+    MatToolbarModule
+  
   ],
   declarations: [
     // DashboardComponent,
@@ -50,7 +62,12 @@ import { UsermanagementComponent } from './usermanagement/usermanagement.compone
     UserprofileComponent,
     ExpimagelistingComponent,
     ImageviewerComponent,
-    UsermanagementComponent
+    UsermanagementComponent,
+    ChatComponent,
+    ChatControlsComponent,
+    ChatHeaderComponent,
+    ChatMessageComponent,
+    TypingIndicatorComponent
   ]
 })
 

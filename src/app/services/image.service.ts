@@ -7,10 +7,10 @@ import { catchError, map, Observable, tap } from 'rxjs';
 })
 export class ImageService {
 
-  hostName = "www.google.com";
+  hostName = window.location.hostname;
   port = 3000;
 
-  host = this.hostName + ':' + this.port;
+  host = this.hostName +':' + this.port;
 
   constructor(private http: HttpClient) { }
 
