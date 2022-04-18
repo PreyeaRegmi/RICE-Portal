@@ -7,14 +7,14 @@ import { catchError, map, Observable, tap } from 'rxjs';
 })
 export class ImageService {
 
-  hostName = "www.google.com";
+  hostName = window.location.hostname;
   port = 3000;
 
-  host = this.hostName + ':' + this.port;
+  host = this.hostName +':' + this.port;
 
   constructor(private http: HttpClient) { }
 
-  getImages(): Observable<string[]> {
+  getImagesObs(): Observable<string[]> {
 
     return this.http.get<string[]>('http://' + this.host + "/retrieve_images").pipe(
       tap(data => console.log(data)),
@@ -34,4 +34,17 @@ export class ImageService {
 
     return images;
   }
+
+  async getImages(): Promise<string[]> {
+
+    let images = [];
+    console.log(this.host);
+    
+    await this.http.get<string[]>('http://'+ this.host + "/retrieve_images").toPromise().then(data => images = data);
+
+    return images;
+  }
+
+
+  
 }

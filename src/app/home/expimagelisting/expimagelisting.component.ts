@@ -22,7 +22,7 @@ export class ExpimagelistingComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.imageService.getImages().subscribe(imgList => {
+    this.imageService.getImagesObs().subscribe(imgList => {
       this.imageList = imgList;
       if(this.imageList.length<1)
       {

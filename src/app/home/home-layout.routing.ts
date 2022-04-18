@@ -5,6 +5,7 @@ import { RestrictedrouteComponent } from '../restrictedroute/restrictedroute.com
 import { AdminService } from '../services/admin.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ExpimagelistingComponent } from './expimagelisting/expimagelisting.component';
+import { ImagedirlistingComponent } from './imagedirlisting/imagedirlisting.component';
 import { UsermanagementComponent } from './usermanagement/usermanagement.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 
@@ -22,7 +23,7 @@ export const HomeLayoutRoutes: Routes = [
     { path: '', redirectTo: 'dashboard' },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'user-profile', component: UserprofileComponent },
-    { path: 'images', component: ExpimagelistingComponent },
+    { path: 'images', component: ImagedirlistingComponent },
     {
         path: 'user-management', component: UsermanagementComponent,
         canActivate: [AdminService],

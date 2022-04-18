@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-imageviewer',
@@ -11,11 +11,18 @@ export class ImageviewerComponent implements OnInit {
   @Input() imageURL: string;
 
   @Output() close = new EventEmitter();
+  @Output() sendForAnalytics = new EventEmitter();
   
   constructor() { }
+
+  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+    this.close.emit();
+}
 
   ngOnInit(): void {
     
   }
+
+
 
 }

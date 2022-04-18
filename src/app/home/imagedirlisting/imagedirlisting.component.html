@@ -1,0 +1,16 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <app-imageviewer
+        [imageURL]="imageURLOrBuffer"
+        [open]="viewerOpen"
+        (close)="viewerOpen = false"
+        (sendForAnalytics)="sendCurrentImageForAnalytics()"
+      ></app-imageviewer>
+        <div cols="4" rowHeight="1:1">
+            <li *ngFor="let html of htmlString">
+                <button mat-raised-button (click)="getImage($event)">{{html}}</button>
+            </li>
+            </div>
+    </div>
+  </div>
+  

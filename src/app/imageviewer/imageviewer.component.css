@@ -44,3 +44,8 @@
     top: 50%;
     transform: translateY(-50%);
   }
+
+  .header-align-right {
+    text-align: right;
+    justify-content: flex-end;
+  }

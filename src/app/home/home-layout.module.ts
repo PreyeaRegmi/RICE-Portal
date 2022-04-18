@@ -17,6 +17,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { ExpimagelistingComponent } from './expimagelisting/expimagelisting.component';
 import { ImageviewerComponent } from '../imageviewer/imageviewer.component';
 import { UsermanagementComponent } from './usermanagement/usermanagement.component';
+import { ImagedirlistingComponent } from './imagedirlisting/imagedirlisting.component';
 
 
 
@@ -50,7 +51,8 @@ import { UsermanagementComponent } from './usermanagement/usermanagement.compone
     UserprofileComponent,
     ExpimagelistingComponent,
     ImageviewerComponent,
-    UsermanagementComponent
+    UsermanagementComponent,
+    ImagedirlistingComponent
   ]
 })
 
