@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './register/register.component';
@@ -16,6 +18,7 @@ import { ComponentsModule } from './components/components.module';
 import { InvalidrouteComponent } from './invalidroute/invalidroute.component';
 import { RestrictedrouteComponent } from './restrictedroute/restrictedroute.component';
 import { FormsModule } from '@angular/forms';
+import { ConfirmdialogComponent } from './confirmdialog/confirmdialog.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     HomeLayoutComponent,
     InvalidrouteComponent,
     RestrictedrouteComponent,
+    ConfirmdialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     AppRoutingModule,
     MatInputModule ,
+    MatDialogModule,
+    MatCardModule,
     ComponentsModule,
     FormsModule
 

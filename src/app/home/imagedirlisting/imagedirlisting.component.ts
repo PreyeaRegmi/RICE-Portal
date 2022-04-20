@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfirmdialogComponent } from 'src/app/confirmdialog/confirmdialog.component';
 import { ImageService } from 'src/app/services/image.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-imagedirlisting',
@@ -18,14 +20,13 @@ export class ImagedirlistingComponent implements OnInit {
   htmlString: string[];
 
 
-  constructor(imageService: ImageService) {
+  constructor(imageService: ImageService,public dialog: MatDialog) {
     this.imageService = imageService;
   }
 
   ngOnInit(): void {
     this.imageService.getImages().then(data => {
       this.htmlString = data;
-      console.log(this.htmlString);
     });
   }
 
@@ -46,6 +47,21 @@ export class ImagedirlistingComponent implements OnInit {
       this.imageURLOrBuffer = data;
       this.viewerOpen = true;
     })
+  
+      // let's call our modal window
+  const dialogRef = this.dialog.open(ConfirmdialogComponent, {
+    maxWidth: "400px",
+    data: {
+        title: "Are you sure?",
+        message: "You are about to send the '"+this.imageName+"'  for processing."}
+  });
 
+  // listen to response
+  dialogRef.afterClosed().subscribe(dialogResult => {
+    // if user pressed yes dialogResult will be true, 
+    // if he pressed no - it will be false
+    console.log(dialogResult);
+    
+ });
   }
 }
