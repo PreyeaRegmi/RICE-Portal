@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConfirmdialogComponent } from 'src/app/confirmdialog/confirmdialog.component';
 import { ImageService } from 'src/app/services/image.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { RecommendationdialogComponent } from '../recommendationdialog/recommendationdialog.component';
 
 @Component({
   selector: 'app-imagedirlisting',
@@ -64,4 +65,14 @@ export class ImagedirlistingComponent implements OnInit {
     
  });
   }
+
+  showRecommendation()
+  {
+        // let's call our modal window
+  const dialogRef = this.dialog.open(RecommendationdialogComponent, {
+    maxWidth: "600px",}
+    );
+  }
+
+  
 }

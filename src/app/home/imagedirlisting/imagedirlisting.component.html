@@ -1,4 +1,5 @@
-<div class="main-content">
+<div>
+  <div class="main-content">
     <div class="container-fluid">
       <!-- <app-imageviewer
         [imageURL]="imageURLOrBuffer"
@@ -6,11 +7,18 @@
         (close)="viewerOpen = false"
         (sendForAnalytics)="sendCurrentImageForAnalytics()"
       ></app-imageviewer> -->
-        <div cols="4" rowHeight="1:1">
-            <li *ngFor="let html of htmlString">
-                <button mat-raised-button (click)="getImage($event)">{{html}}</button>
-            </li>
-            </div>
+      <div cols="4" rowHeight="1:1">
+        <li *ngFor="let html of htmlString">
+          <button mat-raised-button (click)="getImage($event)">
+            {{ html }}
+          </button>
+        </li>
+      </div>
     </div>
   </div>
-  
+  <div class="example-button-container md-fab-bottom-right">
+    <button mat-fab color="warn" aria-label="Example icon button with a home icon" (click)="showRecommendation()">
+      <mat-icon>loop</mat-icon>
+    </button>
+  </div>
+</div>

@@ -10,6 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
@@ -18,6 +19,7 @@ import { ExpimagelistingComponent } from './expimagelisting/expimagelisting.comp
 import { ImageviewerComponent } from '../imageviewer/imageviewer.component';
 import { UsermanagementComponent } from './usermanagement/usermanagement.component';
 import { ImagedirlistingComponent } from './imagedirlisting/imagedirlisting.component';
+import { RecommendationdialogComponent } from './recommendationdialog/recommendationdialog.component';
 
 
 
@@ -35,7 +37,8 @@ import { ImagedirlistingComponent } from './imagedirlisting/imagedirlisting.comp
     MatSelectModule,
     MatTooltipModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule
   ],
   declarations: [
     // DashboardComponent,
@@ -52,7 +55,8 @@ import { ImagedirlistingComponent } from './imagedirlisting/imagedirlisting.comp
     ExpimagelistingComponent,
     ImageviewerComponent,
     UsermanagementComponent,
-    ImagedirlistingComponent
+    ImagedirlistingComponent,
+    RecommendationdialogComponent
   ]
 })
 
