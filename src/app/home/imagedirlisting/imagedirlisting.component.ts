@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmdialogComponent } from 'src/app/confirmdialog/confirmdialog.component';
 import { ImageService } from 'src/app/services/image.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RecommendationdialogComponent } from '../recommendationdialog/recommendationdialog.component';
 
 @Component({
@@ -21,7 +21,7 @@ export class ImagedirlistingComponent implements OnInit {
   htmlString: string[];
 
 
-  constructor(imageService: ImageService,public dialog: MatDialog) {
+  constructor(imageService: ImageService, public dialog: MatDialog) {
     this.imageService = imageService;
   }
 
@@ -36,10 +36,9 @@ export class ImagedirlistingComponent implements OnInit {
     this.viewerOpen = true;
   }
 
-  sendCurrentImageForAnalytics():void
-  {
+  sendCurrentImageForAnalytics(): void {
     console.log("Send image for analytics")
-    this.viewerOpen=false;
+    this.viewerOpen = false;
   }
 
   getImage($event: any) {
@@ -48,31 +47,35 @@ export class ImagedirlistingComponent implements OnInit {
       this.imageURLOrBuffer = data;
       this.viewerOpen = true;
     })
-  
-      // let's call our modal window
-  const dialogRef = this.dialog.open(ConfirmdialogComponent, {
-    maxWidth: "400px",
-    data: {
-        title: "Are you sure?",
-        message: "You are about to send the '"+this.imageName+"'  for processing."}
-  });
 
-  // listen to response
-  dialogRef.afterClosed().subscribe(dialogResult => {
-    // if user pressed yes dialogResult will be true, 
-    // if he pressed no - it will be false
-    console.log(dialogResult);
-    
- });
+    //   
   }
 
-  showRecommendation()
-  {
-        // let's call our modal window
-  const dialogRef = this.dialog.open(RecommendationdialogComponent, {
-    maxWidth: "600px",}
+  sendToAnalytics(file: any) {
+    const dialogRef = this.dialog.open(ConfirmdialogComponent, {
+      maxWidth: "400px",
+      data: {
+        title: "Are you sure?",
+        message: "You are about to send the '" + this.imageName + "'  for processing."
+      }
+    });
+
+    // listen to response
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      // if user pressed yes dialogResult will be true, 
+      // if he pressed no - it will be false
+      console.log(dialogResult);
+
+    });
+  }
+
+  showRecommendation() {
+    // let's call our modal window
+    const dialogRef = this.dialog.open(RecommendationdialogComponent, {
+      maxWidth: "600px",
+    }
     );
   }
 
-  
+
 }

@@ -7,3 +7,8 @@ button{
     right: 15px;
     bottom: 15px; /* Add this and change value to set the margin you want */
 }
+
+.clickable{
+    text-decoration: underline;
+    cursor: pointer;
+}
