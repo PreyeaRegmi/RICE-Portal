@@ -18,7 +18,8 @@ import { ComponentsModule } from './components/components.module';
 import { InvalidrouteComponent } from './invalidroute/invalidroute.component';
 import { RestrictedrouteComponent } from './restrictedroute/restrictedroute.component';
 import { FormsModule } from '@angular/forms';
-import { ConfirmdialogComponent } from './confirmdialog/confirmdialog.component';
+import { ConfirmdialogComponent } from './components/dialogs/confirmdialog/confirmdialog.component';
+import { FiledetaildialogComponent } from './components/dialogs/filedetaildialog/filedetaildialog.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ConfirmdialogComponent } from './confirmdialog/confirmdialog.component'
     InvalidrouteComponent,
     RestrictedrouteComponent,
     ConfirmdialogComponent,
+    FiledetaildialogComponent,
   ],
   imports: [
     BrowserModule,

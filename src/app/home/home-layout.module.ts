@@ -19,7 +19,7 @@ import { ExpimagelistingComponent } from './expimagelisting/expimagelisting.comp
 import { ImageviewerComponent } from '../imageviewer/imageviewer.component';
 import { UsermanagementComponent } from './usermanagement/usermanagement.component';
 import { ImagedirlistingComponent } from './imagedirlisting/imagedirlisting.component';
-import { RecommendationdialogComponent } from './recommendationdialog/recommendationdialog.component';
+import { RecommendationdialogComponent } from '../components/dialogs/recommendationdialog/recommendationdialog.component';
 
 
 

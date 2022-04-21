@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfirmdialogComponent } from 'src/app/confirmdialog/confirmdialog.component';
+import { ConfirmdialogComponent } from 'src/app/components/dialogs/confirmdialog/confirmdialog.component';
 import { ImageService } from 'src/app/services/image.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { RecommendationdialogComponent } from '../recommendationdialog/recommendationdialog.component';
+import { RecommendationdialogComponent } from '../../components/dialogs/recommendationdialog/recommendationdialog.component';
+import { FiledetaildialogComponent } from 'src/app/components/dialogs/filedetaildialog/filedetaildialog.component';
 
 @Component({
   selector: 'app-imagedirlisting',
@@ -36,6 +37,13 @@ export class ImagedirlistingComponent implements OnInit {
     this.viewerOpen = true;
   }
 
+  showFileDetail():void
+  {
+    const dialogRef = this.dialog.open(FiledetaildialogComponent, {
+      minWidth:"400px"
+    }
+    );
+  }
   sendCurrentImageForAnalytics(): void {
     console.log("Send image for analytics")
     this.viewerOpen = false;
