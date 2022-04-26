@@ -4,6 +4,8 @@ import { ImageService } from 'src/app/services/image.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RecommendationdialogComponent } from '../../components/dialogs/recommendationdialog/recommendationdialog.component';
 import { FiledetaildialogComponent } from 'src/app/components/dialogs/filedetaildialog/filedetaildialog.component';
+import { FileService } from 'src/app/services/fileservice.service';
+import { FileDTO } from 'src/app/model/filemodel';
 
 @Component({
   selector: 'app-imagedirlisting',
@@ -18,17 +20,24 @@ export class ImagedirlistingComponent implements OnInit {
   viewerOpen = false;
 
   imageService: ImageService;
+  fileService: FileService;
 
   htmlString: string[];
+   fileList:FileDTO[]
 
 
-  constructor(imageService: ImageService, public dialog: MatDialog) {
+  constructor(imageService: ImageService,fileService: FileService, public dialog: MatDialog) {
     this.imageService = imageService;
+    this.fileService=fileService
   }
 
   ngOnInit(): void {
     this.imageService.getImages().then(data => {
       this.htmlString = data;
+    });
+
+    this.fileService.getFiles().then(filData=>{
+     this.fileList =filData
     });
   }
 
@@ -37,10 +46,12 @@ export class ImagedirlistingComponent implements OnInit {
     this.viewerOpen = true;
   }
 
-  showFileDetail():void
+  showFileDetail(index):void
   {
     const dialogRef = this.dialog.open(FiledetaildialogComponent, {
-      minWidth:"400px"
+      minWidth:"400px",
+      data:this.fileList[index].fileDetail
+      
     }
     );
   }

@@ -7,7 +7,7 @@
         (close)="viewerOpen = false"
         (sendForAnalytics)="sendCurrentImageForAnalytics()"
       ></app-imageviewer>
-      <!-- <div class="row">
+      <div class="row">
         <div cols="4" rowHeight="1:1">
           <li *ngFor="let html of htmlString">
             <button mat-raised-button (click)="getImage($event)">
@@ -15,7 +15,7 @@
             </button>
           </li>
         </div>
-      </div> -->
+      </div>
       <div class="row">
         <div class="col-lg-10 col-md-12">
           <div class="card">
@@ -34,17 +34,17 @@
                   <th>Visualize</th>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr  *ngFor="let item of fileList; let index = index;">
                     <td>
                       <a
                         class="clickable"
                         [routerLink]=""
-                        (click)="showFileDetail()"
-                        >File.mat</a
+                        (click)="showFileDetail(index)"
+                        >{{item.fileName}}</a
                       >
                     </td>
-                    <td>Analyzed</td>
-                    <td>0.532</td>
+                    <td>{{item.status}}</td>
+                    <td>{{item.diceOutput}}</td>
                     <td>
                       <a
                         class="clickable"
@@ -53,13 +53,13 @@
                         >Send to Analytics</a
                       >
                     </td>
-                    <td>Share with everybody</td>
+                    <td>{{item.share}}</td>
                     <td>
                       <a
                         class="clickable"
                         [routerLink]=""
                         (click)="getImage($event)"
-                        >Visualize</a
+                        >Preview</a
                       >
                     </td>
                   </tr>

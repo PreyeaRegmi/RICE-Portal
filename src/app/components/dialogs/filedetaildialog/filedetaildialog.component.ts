@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FileDetail } from 'src/app/model/filemodel';
 
 @Component({
   selector: 'app-filedetaildialog',
@@ -8,8 +9,11 @@ import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angu
 })
 export class FiledetaildialogComponent implements OnInit {
 
+  fileData:FileDetail;
   constructor(public dialModalRef: MatDialogRef<FiledetaildialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: FiledetaildialogData) { }
+    @Inject(MAT_DIALOG_DATA) public data: FileDetail) {
+      this.fileData=data;
+     }
 
   ngOnInit(): void {
   }
@@ -17,8 +21,5 @@ export class FiledetaildialogComponent implements OnInit {
 
 }
 
-export interface FiledetaildialogData {
-  title: string;
-  message: string;
-}
+
 

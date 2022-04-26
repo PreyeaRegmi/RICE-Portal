@@ -122,7 +122,7 @@ export class NavbarComponent implements OnInit {
       var titleeInUrl = this.location.prepareExternalUrl(this.location.path());
         var titleExploded=titleeInUrl.split("/");
         var explicitTitle=titleExploded[titleExploded.length-1];
-        console.log("title : "+explicitTitle);
+        // console.log("title : "+explicitTitle);
       
     //   if(titlee.charAt(0) === 'home'){
     //       titlee = titlee.slice( 1 );

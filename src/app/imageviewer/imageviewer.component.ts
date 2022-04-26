@@ -1,5 +1,4 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-
 @Component({
   selector: 'app-imageviewer',
   templateUrl: './imageviewer.component.html',
@@ -20,7 +19,7 @@ export class ImageviewerComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    
+        
   }
 
 

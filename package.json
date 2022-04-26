@@ -45,8 +45,10 @@
     "moment": "2.29.2",
     "perfect-scrollbar": "1.5.5",
     "popper.js": "1.16.1",
+    "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.5",
     "rxjs-compat": "6.6.7",
+    "typedjson": "^1.8.0",
     "web-animations-js": "2.3.2",
     "zone.js": "~0.11.5"
   },
