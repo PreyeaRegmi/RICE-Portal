@@ -5,7 +5,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { RecommendationdialogComponent } from '../../components/dialogs/recommendationdialog/recommendationdialog.component';
 import { FiledetaildialogComponent } from 'src/app/components/dialogs/filedetaildialog/filedetaildialog.component';
 import { FileService } from 'src/app/services/fileservice.service';
-import { FileDTO } from 'src/app/model/filemodel';
+import { FileDTO, RecommendationDTO } from 'src/app/model/filemodel';
 
 @Component({
   selector: 'app-imagedirlisting',
@@ -25,6 +25,7 @@ export class ImagedirlistingComponent implements OnInit {
 
   htmlString: string[];
    fileList:FileDTO[]
+   recommendationList:RecommendationDTO[]
 
 
   constructor(imageService: ImageService,fileService: FileService, public dialog: MatDialog) {
@@ -40,6 +41,21 @@ export class ImagedirlistingComponent implements OnInit {
     this.fileService.getFiles().then(filData=>{
      this.fileList =filData
     });
+  }
+
+  isAlreadyAnalyzed(index):boolean
+  {
+    return this.fileList[index].status.toLowerCase()==='analyzed';
+  }
+
+  getActionLabel(index)
+  {
+    if(!this.isAlreadyAnalyzed(index))
+    {
+        return "Send to Analytics";
+    }
+    else
+      return "AInalyzed";
   }
 
   onImageClicked(item): void {
@@ -71,14 +87,19 @@ export class ImagedirlistingComponent implements OnInit {
     //   
   }
 
-  sendToAnalytics(file: any) {
+  sendToAnalytics(index) {
+
+    if(this.isAlreadyAnalyzed(index))
+      return;
+
     const dialogRef = this.dialog.open(ConfirmdialogComponent, {
       maxWidth: "400px",
       data: {
         title: "Are you sure?",
-        message: "You are about to send the '" + this.imageName + "'  for processing."
+        message: "You are about to send the '" + this.fileList[index].fileName + "'  for analytics."
       }
     });
+  
 
     // listen to response
     dialogRef.afterClosed().subscribe(dialogResult => {
@@ -86,6 +107,10 @@ export class ImagedirlistingComponent implements OnInit {
       // if he pressed no - it will be false
       if(dialogResult)
       {
+        this.fileService.getRecommendation().then(recommendationList=>{
+          this.recommendationList =recommendationList
+         });
+
         setTimeout(() => {
           this.recommendationAvailable=true;
           this.showRecommendation();
@@ -101,6 +126,7 @@ export class ImagedirlistingComponent implements OnInit {
     // let's call our modal window
     const dialogRef = this.dialog.open(RecommendationdialogComponent, {
       maxWidth: "600px",
+      data:this.recommendationList
     }
     );
   }

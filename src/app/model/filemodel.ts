@@ -21,3 +21,24 @@ export class FileDetail {
     @jsonArrayMember(String) public analyticsOutput: string[];
     @jsonArrayMember(String) public shareStatus: string[];
 }
+
+export class RecommendationDTO
+{
+    @jsonMember public actionId: string;
+    @jsonMember public actionMessage: string;
+    @jsonMember public actionOptions: RecommendationActionsDTO[];
+
+}
+
+export class RecommendationActionsDTO
+{
+    @jsonMember public actionOptionId: string;
+    @jsonMember public actionName: string;
+    @jsonMember public semCommand: SemCommandDTO;
+
+}
+
+export class SemCommandDTO
+{
+
+}

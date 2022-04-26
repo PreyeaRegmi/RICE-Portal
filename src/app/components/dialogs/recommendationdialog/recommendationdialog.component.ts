@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { RecommendationActionsDTO } from 'src/app/model/filemodel';
 
 
 @Component({
@@ -9,8 +10,11 @@ import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angu
 })
 export class RecommendationdialogComponent implements OnInit {
 
+  recommendationList: RecommendationActionsDTO[];
   constructor(public dialModalRef: MatDialogRef<RecommendationdialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: RecommendationDialogData) { }
+    @Inject(MAT_DIALOG_DATA) public data: RecommendationActionsDTO[]) {
+      this.recommendationList=data;
+     }
 
   ngOnInit(): void {
     this.changePosition();
@@ -27,7 +31,4 @@ onActionSelected(): void {
 
 }
 
-export interface RecommendationDialogData {
-  title: string;
-  message: string;
-}
+

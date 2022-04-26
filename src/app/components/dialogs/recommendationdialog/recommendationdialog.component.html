@@ -1,5 +1,11 @@
 <div>
     <p>Dear User,</p>
     <p>Based on your image analytics results, we recommend that you change your parameter setting as follow:</p>
+    <div>
+        <h4>Recommendations</h4>
+      
+        <ul *ngFor="let val of recommendationList; let index = index;">
+          <li>{{val.actionMessage}}</li>
+        </ul>
     
 </div>

@@ -47,10 +47,10 @@
                     <td>{{item.diceOutput}}</td>
                     <td>
                       <a
-                        class="clickable"
+                        [ngClass]="{'clickable':!isAlreadyAnalyzed(index)}"
                         [routerLink]=""
-                        (click)="sendToAnalytics($event)"
-                        >Send to Analytics</a
+                        (click)="sendToAnalytics(index)"
+                        >{{getActionLabel(index)}}</a
                       >
                     </td>
                     <td>{{item.share}}</td>
