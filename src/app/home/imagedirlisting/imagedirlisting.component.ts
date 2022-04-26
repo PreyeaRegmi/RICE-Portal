@@ -18,6 +18,7 @@ export class ImagedirlistingComponent implements OnInit {
   imageName = '';
 
   viewerOpen = false;
+  recommendationAvailable=false;
 
   imageService: ImageService;
   fileService: FileService;
@@ -83,7 +84,15 @@ export class ImagedirlistingComponent implements OnInit {
     dialogRef.afterClosed().subscribe(dialogResult => {
       // if user pressed yes dialogResult will be true, 
       // if he pressed no - it will be false
-      console.log(dialogResult);
+      if(dialogResult)
+      {
+        setTimeout(() => {
+          this.recommendationAvailable=true;
+          this.showRecommendation();
+        },1500); // 2500 is millisecond
+
+         
+      }
 
     });
   }
