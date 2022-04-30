@@ -77,13 +77,16 @@ export class ImagedirlistingComponent implements OnInit {
     this.viewerOpen = false;
   }
 
-  getImage($event: any) {
-    this.imageName = $event.target.innerText;;
-    this.imageService.getImage(this.imageName).then(data => {
-      this.imageURLOrBuffer = data;
-      this.viewerOpen = true;
-    })
+  getImage(index: any) {
+    // this.imageName = $event.target.innerText;;
+    // this.imageService.getImage(this.imageName).then(data => {
+    //   this.imageURLOrBuffer = data;
+    //   this.viewerOpen = true;
+    // })
 
+    this.imageURLOrBuffer =  this.fileList[index].imageUrl;
+    console.log(this.imageURLOrBuffer);
+      this.viewerOpen = true;
     //   
   }
 
@@ -123,7 +126,6 @@ export class ImagedirlistingComponent implements OnInit {
   }
 
   showRecommendation() {
-    // let's call our modal window
     const dialogRef = this.dialog.open(RecommendationdialogComponent, {
       maxWidth: "600px",
       data:this.recommendationList

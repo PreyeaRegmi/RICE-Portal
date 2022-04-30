@@ -58,7 +58,7 @@
                       <a
                         class="clickable"
                         [routerLink]=""
-                        (click)="getImage($event)"
+                        (click)="getImage(index)"
                         >Preview</a
                       >
                     </td>
@@ -75,10 +75,9 @@
     <button
       mat-fab
       color="warn"
-      aria-label="Example icon button with a home icon"
       (click)="showRecommendation()"
     >
-      <mat-icon>loop</mat-icon>
+      <mat-icon>forum</mat-icon>
     </button>
   </div>
 </div>

@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { RecommendationActionsDTO } from 'src/app/model/filemodel';
+import { RecommendationActionsDTO, RecommendationDTO } from 'src/app/model/filemodel';
+
+declare var $:any;
 
 
 @Component({
@@ -10,14 +12,16 @@ import { RecommendationActionsDTO } from 'src/app/model/filemodel';
 })
 export class RecommendationdialogComponent implements OnInit {
 
-  recommendationList: RecommendationActionsDTO[];
+  recommendationList: RecommendationDTO[];
+  
   constructor(public dialModalRef: MatDialogRef<RecommendationdialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: RecommendationActionsDTO[]) {
+    @Inject(MAT_DIALOG_DATA) public data: RecommendationDTO[]) {
       this.recommendationList=data;
      }
 
   ngOnInit(): void {
     this.changePosition();
+    console.log(this.recommendationList[0].actionsOptions);
   }
 
   changePosition() {
@@ -27,6 +31,27 @@ export class RecommendationdialogComponent implements OnInit {
 onActionSelected(): void {
   // Close the dialog, return true
   this.dialModalRef.close(true);
+}
+
+onSubmitRecommendation():void{
+  this.showNotification();
+}
+
+showNotification(){
+  const type = ['','info','success','warning','danger'];
+
+  var color = Math.floor((Math.random() * 4) + 1);
+  $.notify({
+      icon: "pe-7s-gift",
+      message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+  },{
+      type: type[4],
+      timer: 1000,
+      placement: {
+          from: 'bottom',
+          align: 'right'
+      }
+  });
 }
 
 }

@@ -1,40 +1,38 @@
 import { jsonObject, jsonMember, jsonArrayMember, jsonMapMember, TypedJSON } from 'typedjson';
 
-@jsonObject
 export
     class FileDTO {
-    @jsonMember public fileId: string;
-    @jsonMember public fileName: string;
-    @jsonMember public status: string;
-    @jsonMember public diceOutput: string;
-    @jsonMember public share: string;
-    @jsonMember public imageUrl: string;
-    @jsonMember public matUrl: string;
-    @jsonMember public fileDetail: FileDetail;
+     public fileId: string;
+     public fileName: string;
+     public status: string;
+     public diceOutput: string;
+     public share: string;
+     public imageUrl: string;
+     public matUrl: string;
+     public fileDetail: FileDetail;
 
 }
 
-@jsonObject
 export class FileDetail {
-    @jsonArrayMember(String) public metaData: string[];
-    @jsonArrayMember(String) public scanParameter: string[];
-    @jsonArrayMember(String) public analyticsOutput: string[];
-    @jsonArrayMember(String) public shareStatus: string[];
+     public metaData: string[];
+     public scanParameter: string[];
+     public analyticsOutput: string[];
+     public shareStatus: string[];
 }
 
 export class RecommendationDTO
 {
-    @jsonMember public actionId: string;
-    @jsonMember public actionMessage: string;
-    @jsonMember public actionOptions: RecommendationActionsDTO[];
+     public actionId: string;
+     public actionMessage: string;
+     public actionsOptions: RecommendationActionsDTO[];
 
 }
 
 export class RecommendationActionsDTO
 {
-    @jsonMember public actionOptionId: string;
-    @jsonMember public actionName: string;
-    @jsonMember public semCommand: SemCommandDTO;
+     public actionOptionId: string;
+     public actionName: string;
+     public semCommand: SemCommandDTO;
 
 }
 
