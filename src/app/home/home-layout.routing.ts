@@ -23,7 +23,7 @@ export const HomeLayoutRoutes: Routes = [
     { path: '', redirectTo: 'dashboard' },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'user-profile', component: UserprofileComponent },
-    { path: 'images', component: ImagedirlistingComponent },
+    { path: 'experiments', component: ImagedirlistingComponent },
     {
         path: 'user-management', component: UsermanagementComponent,
         canActivate: [AdminService],

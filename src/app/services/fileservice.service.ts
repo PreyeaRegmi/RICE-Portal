@@ -13,9 +13,8 @@ export class FileService {
 
   baseURL="http://3.138.106.133:3000"
 
-  dummyFileList: string = '[{"fileId":"","fileName":"Sample.mat","status":"not reviewed","diceOutput":".53","share":"Share with everybody","imageUrl":"https://drive.google.com/file/d/15B_6bSTbqItWP1TNMtmSjKXBqt46m7Ua/preview","matUrl":"","fileDetail":{"metaData":["Meta 1","Meta 2"],"scanParameter":["Param 1","Param 2"],"analyticsOutput":["Analytics 1","Analytics 2"],"shareStatus":["Status 1","Status 2"]}}]';
-  dummyRecommendations:string='[{"actionId":"uniqueId","actionMessage":"Change Resolution","actionsOptions":[{"actionOptionId":"uniqueId","actionName":"1080p","semCommand":{}},{"actionOptionId":"uniqueId","actionName":"720p","semCommand":{}}]},{"actionId":"uniqueId","actionMessage":"Change Contour","actionsOptions":[{"actionOptionId":"uniqueId","actionName":"1","semCommand":{}},{"actionOptionId":"uniqueId","actionName":"2","semCommand":{}}]}]';
-  
+  dummyFileList: string = '[{"fileId":"","fileName":"Sample.mat","status":"not reviewed","diceOutput":".53","share":"Share with everybody","imageUrl":"https://raw.githubusercontent.com/PreyeaRegmi/RICE-Portal/dev/src/assets/img/60190-S70.jpg","matUrl":"","fileDetail":{"metaData":["Meta 1","Meta 2"],"scanParameter":["Param 1","Param 2"],"analyticsOutput":["Analytics 1","Analytics 2"],"shareStatus":["Status 1","Status 2"]}}]';
+  dummyRecommendations:string='[{"actionId":"1","actionMessage":"Change Resolution","actionsOptions":[{"actionOptionId":"1","actionName":"1080p","semCommand":{}},{"actionOptionId":"2","actionName":"720p","semCommand":{}}]},{"actionId":"2","actionMessage":"Change Contour","actionsOptions":[{"actionOptionId":"3","actionName":"1","semCommand":{}},{"actionOptionId":"4","actionName":"2","semCommand":{}}]}]';
   host: string;
   constructor(private http: HttpClient) {
 

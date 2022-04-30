@@ -35,6 +35,8 @@ onActionSelected(): void {
 
 onSubmitRecommendation():void{
   this.showNotification();
+  this.dialModalRef.close(true);
+
 }
 
 showNotification(){
@@ -43,7 +45,7 @@ showNotification(){
   var color = Math.floor((Math.random() * 4) + 1);
   $.notify({
       icon: "pe-7s-gift",
-      message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+      message: "Update configuration send to SEM Controller successfully"
   },{
       type: type[4],
       timer: 1000,
