@@ -71,7 +71,6 @@ export class ImagedirlistingComponent implements OnInit {
     );
   }
   sendCurrentImageForAnalytics(): void {
-    console.log("Send image for analytics")
     this.viewerOpen = false;
   }
 
