@@ -45,7 +45,7 @@ showNotification(){
   var color = Math.floor((Math.random() * 4) + 1);
   $.notify({
       icon: "pe-7s-gift",
-      message: "Sem commands sent to SEM controller successfully."
+      message: "Sem commands updated successfully."
   },{
       type: type[4],
       timer: 1000,

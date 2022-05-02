@@ -20,8 +20,8 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 
 export const HomeLayoutRoutes: Routes = [
 
-    { path: '', redirectTo: 'dashboard' },
-    { path: 'dashboard', component: DashboardComponent },
+    { path: '', redirectTo: 'experiments' },
+    // { path: 'dashboard', component: DashboardComponent },
     { path: 'user-profile', component: UserprofileComponent },
     { path: 'experiments', component: ImagedirlistingComponent },
     {

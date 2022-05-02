@@ -18,19 +18,19 @@ export class ImagedirlistingComponent implements OnInit {
   imageName = '';
 
   viewerOpen = false;
-  recommendationAvailable=false;
+  recommendationAvailable = false;
 
   imageService: ImageService;
   fileService: FileService;
 
   htmlString: string[];
-   fileList:FileDTO[]
-   recommendationList:RecommendationDTO[]
+  fileList: FileDTO[]
+  recommendationList: RecommendationDTO[]
 
 
-  constructor(imageService: ImageService,fileService: FileService, public dialog: MatDialog) {
+  constructor(imageService: ImageService, fileService: FileService, public dialog: MatDialog) {
     this.imageService = imageService;
-    this.fileService=fileService
+    this.fileService = fileService
   }
 
   ngOnInit(): void {
@@ -38,24 +38,23 @@ export class ImagedirlistingComponent implements OnInit {
       this.htmlString = data;
     });
 
-    this.fileService.getFiles().then(filData=>{
-     this.fileList =filData
+    this.fileService.getFiles().then(filData => {
+      this.fileList = filData
     });
   }
 
-  isAlreadyAnalyzed(index):boolean
-  {
-    return this.fileList[index].status.toLowerCase()==='analyzed';
+  isAlreadyAnalyzed(index): boolean {
+    return this.fileList[index].status.toLowerCase() === 'analyzed';
   }
 
-  getActionLabel(index)
-  {
-    if(!this.isAlreadyAnalyzed(index))
-    {
-        return "Send to Analytics";
+
+
+  getActionLabel(index) {
+    if (!this.isAlreadyAnalyzed(index)) {
+      return "Send to Analytics";
     }
     else
-      return "AInalyzed";
+      return "";
   }
 
   onImageClicked(item): void {
@@ -63,12 +62,11 @@ export class ImagedirlistingComponent implements OnInit {
     this.viewerOpen = true;
   }
 
-  showFileDetail(index):void
-  {
+  showFileDetail(index): void {
     const dialogRef = this.dialog.open(FiledetaildialogComponent, {
-      minWidth:"400px",
-      data:this.fileList[index].fileDetail
-      
+      minWidth: "400px",
+      data: this.fileList[index].fileDetail
+
     }
     );
   }
@@ -84,15 +82,15 @@ export class ImagedirlistingComponent implements OnInit {
     //   this.viewerOpen = true;
     // })
 
-    this.imageURLOrBuffer =  this.fileList[index].imageUrl;
+    this.imageURLOrBuffer = this.fileList[index].imageUrl;
     console.log(this.imageURLOrBuffer);
-      this.viewerOpen = true;
+    this.viewerOpen = true;
     //   
   }
 
   sendToAnalytics(index) {
 
-    if(this.isAlreadyAnalyzed(index))
+    if (this.isAlreadyAnalyzed(index))
       return;
 
     const dialogRef = this.dialog.open(ConfirmdialogComponent, {
@@ -102,36 +100,43 @@ export class ImagedirlistingComponent implements OnInit {
         message: "You are about to send the '" + this.fileList[index].fileName + "'  for analytics."
       }
     });
-  
 
-    // listen to response
+
     dialogRef.afterClosed().subscribe(dialogResult => {
-      // if user pressed yes dialogResult will be true, 
-      // if he pressed no - it will be false
-      if(dialogResult)
-      {
-        this.fileService.getRecommendation().then(recommendationList=>{
-          this.recommendationList =recommendationList
+
+      if (dialogResult) {
+        this.fileService.getRecommendation().then(recommendationList => {
+          this.recommendationList = recommendationList
           setTimeout(() => {
-            this.recommendationAvailable=true;
-            this.showRecommendation();
-          },1500); // 2500 is millisecond
-         });
+            this.recommendationAvailable = true;
+            this.showRecommendation(index);
+          }, 1500); // 2500 is millisecond
+        });
 
-       
 
-         
+
+
       }
 
     });
   }
 
-  showRecommendation() {
+  showRecommendation(index) {
     const dialogRef = this.dialog.open(RecommendationdialogComponent, {
       maxWidth: "600px",
-      data:this.recommendationList
+      data: this.recommendationList
     }
     );
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+
+      if (dialogResult) {
+        this.fileList[index].status = 'Analyzed'
+        this.recommendationAvailable = false;
+
+      }
+
+    });
   }
 
 
