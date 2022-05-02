@@ -112,12 +112,13 @@ export class ImagedirlistingComponent implements OnInit {
       {
         this.fileService.getRecommendation().then(recommendationList=>{
           this.recommendationList =recommendationList
+          setTimeout(() => {
+            this.recommendationAvailable=true;
+            this.showRecommendation();
+          },1500); // 2500 is millisecond
          });
 
-        setTimeout(() => {
-          this.recommendationAvailable=true;
-          this.showRecommendation();
-        },1500); // 2500 is millisecond
+       
 
          
       }

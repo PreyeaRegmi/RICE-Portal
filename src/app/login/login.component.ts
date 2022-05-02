@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
     else
       localStorage.setItem("userType", "user");
 
-      localStorage.setItem("userType", "admin");
 
     this.router.navigate(['home']);
   }
