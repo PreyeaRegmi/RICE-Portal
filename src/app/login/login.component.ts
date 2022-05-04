@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       this.showNotification("Username/Password not matched")
     }
     else
-    this.showNotification("No user with "+this.userPassword+"found")
+    this.showNotification("No user with "+this.userPassword+" found")
   }
 
 showNotification(message:String){
