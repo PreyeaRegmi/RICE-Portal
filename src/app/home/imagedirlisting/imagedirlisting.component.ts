@@ -40,7 +40,22 @@ export class ImagedirlistingComponent implements OnInit {
 
     this.fileService.getFiles().then(filData => {
       this.fileList = filData
+      // if(this.fileList.length>0)
+      // {
+      //   let hasAnalayzedValue=false;
+      //   this.fileList.forEach((item)=>{
+      //     if(item.status.toLowerCase()==='analyzed')
+      //       {
+      //           hasAnalayzedValue=true;
+      //       }
+      //   });
+      //   console.log("Has analyzed: "+hasAnalayzedValue);
+      //   if(hasAnalayzedValue)
+      //     this.getRecommendation("0");
+      // }
     });
+
+
   }
 
   isAlreadyAnalyzed(index): boolean {
@@ -107,17 +122,23 @@ export class ImagedirlistingComponent implements OnInit {
         this.fileService.performAnalytics(this.fileList[index].fileId).then(
           result => {
             if (result) {
-              this.fileService.getRecommendation().then(recommendationList => {
-                this.recommendationList = recommendationList
-                this.fileService.getFiles().then(filData => {
-                  setTimeout(() => {
+
+              setTimeout(() => {
+                this.fileService.getRecommendation().then(recommendationList => {
+                  this.recommendationList = recommendationList
+                  this.fileService.getFiles().then(filData => {
                     this.fileList = filData
+                    // this.fileList[index].status="Analyzed"
+                    // this.fileList[index].diceOutput="0.56"
+
                     this.recommendationAvailable = true;
                     this.showRecommendation(index);
-                  }, 1500); // 2500 is millisecond
+                  });
+
                 });
-               
-              });
+              }, 120000);
+
+
             }
             else {
 
@@ -125,6 +146,31 @@ export class ImagedirlistingComponent implements OnInit {
           }
         )
       }
+
+    });
+  }
+
+  getRecommendation(index) {
+    this.fileService.getRecommendation().then(recommendationList => {
+      this.recommendationList = recommendationList
+      this.recommendationAvailable = true;
+      setTimeout(() => {
+        this.showRecommendation(index);
+      }, 1500); // 2500
+    });
+
+    this.fileService.getRecommendation().then(recommendationList => {
+      this.recommendationList = recommendationList
+      this.fileService.getFiles().then(filData => {
+        setTimeout(() => {
+          this.fileList = filData
+          // this.fileList[index].status="Analyzed"
+          // this.fileList[index].diceOutput="0.56"
+
+          this.recommendationAvailable = true;
+          this.showRecommendation(index);
+        }, 4000); // 2500 is millisecond
+      });
 
     });
   }
@@ -139,7 +185,7 @@ export class ImagedirlistingComponent implements OnInit {
     dialogRef.afterClosed().subscribe(dialogResult => {
 
       if (dialogResult) {
-       
+
         this.recommendationAvailable = false;
 
       }
