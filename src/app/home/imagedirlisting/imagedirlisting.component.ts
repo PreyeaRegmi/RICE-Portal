@@ -104,17 +104,26 @@ export class ImagedirlistingComponent implements OnInit {
     dialogRef.afterClosed().subscribe(dialogResult => {
 
       if (dialogResult) {
-        this.fileService.getRecommendation().then(recommendationList => {
-          this.recommendationList = recommendationList
-          setTimeout(() => {
-            this.recommendationAvailable = true;
-            this.showRecommendation(index);
-          }, 1500); // 2500 is millisecond
-        });
+        this.fileService.performAnalytics(this.fileList[index].fileId).then(
+          result => {
+            if (result) {
+              this.fileService.getRecommendation().then(recommendationList => {
+                this.recommendationList = recommendationList
+                this.fileService.getFiles().then(filData => {
+                  setTimeout(() => {
+                    this.fileList = filData
+                    this.recommendationAvailable = true;
+                    this.showRecommendation(index);
+                  }, 1500); // 2500 is millisecond
+                });
+               
+              });
+            }
+            else {
 
-
-
-
+            }
+          }
+        )
       }
 
     });
@@ -130,7 +139,7 @@ export class ImagedirlistingComponent implements OnInit {
     dialogRef.afterClosed().subscribe(dialogResult => {
 
       if (dialogResult) {
-        this.fileList[index].status = 'Analyzed'
+       
         this.recommendationAvailable = false;
 
       }

@@ -45,4 +45,21 @@ export class FileService {
     return recommendationList;
   }
 
+  async performAnalytics(fileId:String): Promise<boolean> {
+
+    const request:JSON = <JSON><unknown>{
+      "fileId": fileId,
+    }
+
+
+    await this.http.post( this.baseURL + "/perform_analytics",request).toPromise()
+      .catch((err: HttpErrorResponse) => {
+        console.log("Error while performing analytics")
+        return true;
+      });
+
+    return true;
+  }
+
+
 }
